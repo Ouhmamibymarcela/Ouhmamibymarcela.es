@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oh Mamy by Marcela - Cocina Italo-Argentina</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#BFFF00',secondary:'#B5E5FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+:root {
+--black: #000000;
+--light-blue: #B5E5FF;
+--warm-white: #FFF8E7;
+--neon-green: #BFFF00;
+--dark-green: #2E402F;
+}
+body {
+font-family: 'Poppins', sans-serif;
+background-color: var(--black);
+color: var(--warm-white);
+}
+h1, h2, h3, .script-font {
+font-family: 'Playfair Display', serif;
+}
+.logo {
+font-family: 'Pacifico', serif;
+}
+.menu-card {
+background-color: rgba(255, 248, 231, 0.05);
+backdrop-filter: blur(5px);
+transition: transform 0.3s ease;
+}
+.menu-card:hover {
+transform: scale(1.05);
+}
+.allergen-icon {
+width: 24px;
+height: 24px;
+background-color: var(--light-blue);
+color: var(--black);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+font-weight: bold;
+}
+.tab-button {
+transition: all 0.3s ease;
+position: relative;
+}
+.tab-button.active {
+color: var(--neon-green);
+}
+.tab-button.active::after {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--neon-green);
+}
+.gallery-item {
+overflow: hidden;
+position: relative;
+}
+.gallery-item img {
+transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+transform: scale(1.05);
+}
+.gallery-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.4);
+opacity: 0;
+transition: opacity 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.gallery-item:hover .gallery-overlay {
+opacity: 1;
+}
+.language-switch {
+position: relative;
+width: 80px;
+height: 34px;
+}
+.language-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.language-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(255, 255, 255, 0.2);
+transition: .4s;
+border-radius: 34px;
+}
+.language-slider:before {
+position: absolute;
+content: "ES";
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+font-weight: bold;
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: var(--neon-green);
+color: var(--black);
+transition: .4s;
+border-radius: 50%;
+z-index: 1;
+}
+.language-slider:after {
+position: absolute;
+content: "EN";
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+font-weight: bold;
+height: 26px;
+width: 26px;
+right: 4px;
+bottom: 4px;
+color: rgba(255, 255, 255, 0.5);
+}
+input:checked + .language-slider:before {
+transform: translateX(46px);
+content: "EN";
+}
+input:checked + .language-slider:after {
+content: "ES";
+right: auto;
+left: 4px;
+}
+.mobile-menu {
+transition: transform 0.3s ease;
+transform: translateX(100%);
+}
+.mobile-menu.open {
+transform: translateX(0);
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+background-color: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: var(--warm-white);
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+border-color: var(--neon-green);
+outline: none;
+}
+.scroll-indicator {
+animation: bounce 2s infinite;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+transform: translateY(0);
+}
+40% {
+transform: translateY(-10px);
+}
+60% {
+transform: translateY(-5px);
+}
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<!-- Logo -->
+<a href="#" class="logo text-3xl text-primary">Oh Mamy</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center space-x-6">
+<a href="#home" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Inicio</span>
+<span data-lang="en" class="hidden">Home</span>
+</a>
+<a href="#about" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Sobre Nosotros</span>
+<span data-lang="en" class="hidden">About Us</span>
+</a>
+<a href="#menu" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Menú</span>
+<span data-lang="en" class="hidden">Menu</span>
+</a>
+<a href="#gallery" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Galería</span>
+<span data-lang="en" class="hidden">Gallery</span>
+</a>
+<a href="#contact" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Contacto</span>
+<span data-lang="en" class="hidden">Contact</span>
+</a>
+</nav>
+<!-- Language Switch -->
+<div class="hidden md:flex items-center">
+<label class="language-switch mx-4">
+<input type="checkbox" id="language-toggle">
+<span class="language-slider"></span>
+</label>
+</div>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-warm-white">
+<i class="ri-menu-line ri-2x"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-4/5 bg-black bg-opacity-95 z-50 p-6 flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<span class="logo text-2xl text-primary">Oh Mamy</span>
+<button id="close-menu" class="w-10 h-10 flex items-center justify-center text-warm-white">
+<i class="ri-close-line ri-2x"></i>
+</button>
+</div>
+<nav class="flex flex-col space-y-6 text-lg">
+<a href="#home" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Inicio</span>
+<span data-lang="en" class="hidden">Home</span>
+</a>
+<a href="#about" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Sobre Nosotros</span>
+<span data-lang="en" class="hidden">About Us</span>
+</a>
+<a href="#menu" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Menú</span>
+<span data-lang="en" class="hidden">Menu</span>
+</a>
+<a href="#gallery" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Galería</span>
+<span data-lang="en" class="hidden">Gallery</span>
+</a>
+<a href="#contact" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Contacto</span>
+<span data-lang="en" class="hidden">Contact</span>
+</a>
+</nav>
+<div class="mt-auto">
+<label class="language-switch mx-auto mt-8 flex">
+<input type="checkbox" id="mobile-language-toggle">
+<span class="language-slider"></span>
+</label>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="relative h-screen flex items-center justify-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20warm%20and%20inviting%20Italian-Argentinian%20restaurant%20interior%20with%20a%20traditional%20wood-fired%20pizza%20oven%20in%20the%20background%2C%20fresh%20ingredients%20on%20display%2C%20warm%20ambient%20lighting%2C%20rustic%20wooden%20tables%2C%20and%20a%20cozy%20atmosphere%20that%20blends%20Italian%20and%20Argentinian%20cultural%20elements.%20The%20image%20should%20have%20a%20dark%2C%20moody%20ambiance%20with%20subtle%20lighting%20highlighting%20key%20areas&width=1600&height=900&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
+<div class="container mx-auto px-4 z-10 text-center">
+<h1 class="text-4xl md:text-6xl mb-4 font-bold text-white">
+<span class="block logo text-5xl md:text-7xl mb-2">Oh Mamy</span>
+<span class="block text-2xl md:text-3xl mt-2">by Marcela</span>
+</h1>
+<p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+<span class="block mb-2">Auténtica cocina italo-argentina en Mazarrón</span>
+<span class="block text-secondary">Authentic Italian-Argentinian cuisine in Mazarrón</span>
+</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a href="#contact" class="bg-primary text-black px-8 py-3 rounded-button font-semibold text-lg hover:bg-opacity-90 transition-all whitespace-nowrap">Contáctanos / Contact Us</a>
+<a href="#menu" class="bg-secondary text-black px-8 py-3 rounded-button font-semibold text-lg hover:bg-opacity-90 transition-all whitespace-nowrap">Ver Menú / See Menu</a>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+<i class="ri-arrow-down-line ri-2x text-white"></i>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Sobre Nosotros / About Us</h2>
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="w-full md:w-1/2">
+<h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
+<p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Oh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
+<p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Oh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
+<h3 class="text-2xl mb-4 mt-8 text-primary">Filosofía / Philosophy</h3>
+<p class="mb-4">Creemos en ingredientes frescos, recetas tradicionales y un ambiente acogedor donde cada cliente se sienta como en casa. Cada plato cuenta una historia de tradición familiar y pasión por la buena comida.</p>
+<p class="mb-4 text-secondary">We believe in fresh ingredients, traditional recipes, and a welcoming atmosphere where every customer feels at home. Each dish tells a story of family tradition and passion for good food.</p>
+</div>
+<div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
+<video class="w-full h-full object-cover" autoplay muted loop>
+<source src="https://player.vimeo.com/external/370467553.sd.mp4?s=db5c0e1c94fa91b58bb3b3de7f09ef0f7a5b3eb2&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+</video>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section id="menu" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Nuestra Carta / Our Menu</h2>
+<!-- Menu Categories Tabs -->
+<div class="overflow-x-auto mb-8">
+<div class="flex space-x-4 min-w-max px-4">
+<button class="tab-button active px-4 py-2 text-lg whitespace-nowrap" data-category="entrantes">Entrantes / Starters</button>
+<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pastas">Pastas / Pasta</button>
+<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pizzas">Pizzas / Pizzas</button>
+<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="carnes">Carnes / Meats</button>
+<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pescados">Pescados / Fish</button>
+<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="postres">Postres / Desserts</button>
+</div>
+</div>
+<!-- Menu Items -->
+<div class="menu-content" id="entrantes">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Menu Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Provoleta</h3>
+<p class="text-gray-300 mb-1">Queso provolone fundido con orégano y pimentón.</p>
+<p class="text-secondary text-sm mb-3">Melted provolone cheese with oregano and paprika.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">9,50 €</span>
+</div>
+</div>
+<!-- Menu Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Carpaccio</h3>
+<p class="text-gray-300 mb-1">Finas láminas de ternera con rúcula, parmesano y aceite de trufa.</p>
+<p class="text-secondary text-sm mb-3">Thin slices of beef with arugula, parmesan and truffle oil.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">12,00 €</span>
+</div>
+</div>
+<!-- Menu Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Empanadas Argentinas</h3>
+<p class="text-gray-300 mb-1">Tradicionales empanadas de carne o pollo (2 unidades).</p>
+<p class="text-secondary text-sm mb-3">Traditional Argentinian empanadas with beef or chicken (2 units).</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">7,50 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-content hidden" id="pastas">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Pasta Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Spaghetti Carbonara</h3>
+<p class="text-gray-300 mb-1">Pasta con salsa de huevo, panceta, pimienta negra y queso pecorino.</p>
+<p class="text-secondary text-sm mb-3">Pasta with egg sauce, pancetta, black pepper and pecorino cheese.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Huevo / Egg</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">13,50 €</span>
+</div>
+</div>
+<!-- Pasta Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Lasagna Casera</h3>
+<p class="text-gray-300 mb-1">Capas de pasta con ragú de carne, bechamel y queso gratinado.</p>
+<p class="text-secondary text-sm mb-3">Layers of pasta with meat ragout, bechamel and melted cheese.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">14,00 €</span>
+</div>
+</div>
+<!-- Pasta Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Ravioli di Ricotta e Spinaci</h3>
+<p class="text-gray-300 mb-1">Pasta rellena de ricotta y espinacas con salsa de mantequilla y salvia.</p>
+<p class="text-secondary text-sm mb-3">Pasta filled with ricotta and spinach with butter and sage sauce.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">15,00 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-content hidden" id="pizzas">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Pizza Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Pizza Margherita</h3>
+<p class="text-gray-300 mb-1">Tomate, mozzarella y albahaca fresca.</p>
+<p class="text-secondary text-sm mb-3">Tomato, mozzarella and fresh basil.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">10,50 €</span>
+</div>
+</div>
+<!-- Pizza Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Pizza Quattro Formaggi</h3>
+<p class="text-gray-300 mb-1">Mozzarella, gorgonzola, parmesano y fontina.</p>
+<p class="text-secondary text-sm mb-3">Mozzarella, gorgonzola, parmesan and fontina.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">13,00 €</span>
+</div>
+</div>
+<!-- Pizza Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Pizza Prosciutto e Rucola</h3>
+<p class="text-gray-300 mb-1">Tomate, mozzarella, jamón de Parma, rúcula y láminas de parmesano.</p>
+<p class="text-secondary text-sm mb-3">Tomato, mozzarella, Parma ham, arugula and parmesan flakes.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">14,50 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-content hidden" id="carnes">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Carne Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Bife de Chorizo</h3>
+<p class="text-gray-300 mb-1">Entrecot argentino a la parrilla con chimichurri y guarnición.</p>
+<p class="text-secondary text-sm mb-3">Grilled Argentine sirloin steak with chimichurri and garnish.</p>
+<div class="flex flex-wrap gap-2">
+<!-- No common allergens -->
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">22,00 €</span>
+</div>
+</div>
+<!-- Carne Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Parrillada Argentina (2 personas)</h3>
+<p class="text-gray-300 mb-1">Selección de cortes argentinos: bife, chorizo, morcilla y mollejas.</p>
+<p class="text-secondary text-sm mb-3">Selection of Argentine cuts: steak, chorizo, blood sausage and sweetbreads.</p>
+<div class="flex flex-wrap gap-2">
+<!-- No common allergens -->
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">45,00 €</span>
+</div>
+</div>
+<!-- Carne Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Osso Buco</h3>
+<p class="text-gray-300 mb-1">Jarrete de ternera estofado con verduras, vino blanco y polenta cremosa.</p>
+<p class="text-secondary text-sm mb-3">Veal shank stewed with vegetables, white wine and creamy polenta.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Apio / Celery</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Sulfitos / Sulfites</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">19,50 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-content hidden" id="pescados">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Pescado Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Lubina a la Parrilla</h3>
+<p class="text-gray-300 mb-1">Filete de lubina a la parrilla con hierbas mediterráneas y verduras.</p>
+<p class="text-secondary text-sm mb-3">Grilled sea bass fillet with Mediterranean herbs and vegetables.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Pescado / Fish</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">18,50 €</span>
+</div>
+</div>
+<!-- Pescado Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Risotto ai Frutti di Mare</h3>
+<p class="text-gray-300 mb-1">Arroz cremoso con mariscos variados, vino blanco y perejil fresco.</p>
+<p class="text-secondary text-sm mb-3">Creamy rice with various seafood, white wine and fresh parsley.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Pescado / Fish</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Crustáceos / Crustaceans</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Moluscos / Molluscs</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Sulfitos / Sulfites</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">17,00 €</span>
+</div>
+</div>
+<!-- Pescado Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Pulpo a la Parrilla</h3>
+<p class="text-gray-300 mb-1">Tentáculos de pulpo a la parrilla con patatas, pimentón y aceite de oliva.</p>
+<p class="text-secondary text-sm mb-3">Grilled octopus tentacles with potatoes, paprika and olive oil.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Moluscos / Molluscs</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">20,00 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-content hidden" id="postres">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Postre Item 1 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Tiramisú</h3>
+<p class="text-gray-300 mb-1">Postre italiano clásico con capas de bizcocho, café, mascarpone y cacao.</p>
+<p class="text-secondary text-sm mb-3">Classic Italian dessert with layers of sponge cake, coffee, mascarpone and cocoa.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Huevo / Egg</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lactosa / Lactose</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">6,50 €</span>
+</div>
+</div>
+<!-- Postre Item 2 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Alfajores</h3>
+<p class="text-gray-300 mb-1">Galletas tradicionales argentinas rellenas de dulce de leche (3 unidades).</p>
+<p class="text-secondary text-sm mb-3">Traditional Argentine cookies filled with dulce de leche (3 units).</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten / Gluten</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Huevo / Egg</span>
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lactosa / Lactose</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">5,00 €</span>
+</div>
+</div>
+<!-- Postre Item 3 -->
+<div class="menu-card rounded-lg p-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex-1">
+<h3 class="text-xl font-semibold mb-2">Panna Cotta</h3>
+<p class="text-gray-300 mb-1">Postre cremoso de vainilla con coulis de frutos rojos.</p>
+<p class="text-secondary text-sm mb-3">Creamy vanilla dessert with red fruit coulis.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lactosa / Lactose</span>
+</div>
+</div>
+<span class="text-primary font-bold text-xl whitespace-nowrap">6,00 €</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Galería / Gallery</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Gallery Item 1 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20cozy%20interior%20of%20an%20Italian-Argentinian%20restaurant%20with%20warm%20lighting%2C%20wooden%20tables%2C%20and%20rustic%20decor.%20The%20space%20has%20a%20welcoming%20atmosphere%20with%20some%20Italian%20and%20Argentinian%20decorative%20elements.%20The%20lighting%20is%20warm%20and%20ambient%2C%20creating%20a%20comfortable%20dining%20environment&width=600&height=600&seq=20&orientation=squarish" alt="Restaurante Interior" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20traditional%20wood-fired%20pizza%20oven%20with%20flames%20visible%20inside%2C%20in%20an%20Italian-Argentinian%20restaurant.%20The%20oven%20has%20a%20rustic%20brick%20exterior%20and%20is%20the%20centerpiece%20of%20the%20open%20kitchen.%20A%20chef%20is%20preparing%20to%20place%20a%20pizza%20inside.%20The%20lighting%20is%20warm%20and%20highlights%20the%20glow%20from%20the%20fire&width=600&height=600&seq=21&orientation=squarish" alt="Horno de Leña" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautifully%20presented%20plate%20of%20homemade%20pasta%20with%20a%20rich%20sauce%2C%20garnished%20with%20fresh%20herbs%20and%20grated%20cheese.%20The%20pasta%20is%20perfectly%20cooked%20and%20arranged%20artistically%20on%20a%20white%20plate.%20The%20lighting%20is%20warm%20and%20inviting%2C%20highlighting%20the%20texture%20of%20the%20pasta%20and%20the%20glossy%20sauce&width=600&height=600&seq=22&orientation=squarish" alt="Pasta Casera" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20perfectly%20grilled%20Argentinian%20steak%20with%20beautiful%20grill%20marks%2C%20served%20with%20chimichurri%20sauce%20and%20a%20side%20of%20roasted%20vegetables.%20The%20meat%20is%20juicy%20and%20cooked%20to%20medium-rare%20perfection.%20The%20plate%20is%20presented%20on%20a%20dark%20wooden%20table%20with%20warm%2C%20ambient%20lighting%20that%20highlights%20the%20succulent%20texture%20of%20the%20meat&width=600&height=600&seq=23&orientation=squarish" alt="Carne a la Parrilla" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20close-up%20of%20a%20chefs%20hands%20preparing%20fresh%20pasta%20dough%20in%20a%20traditional%20Italian%20way.%20The%20chef%20is%20rolling%20out%20the%20dough%20on%20a%20floured%20wooden%20surface.%20The%20scene%20captures%20the%20craftsmanship%20and%20attention%20to%20detail%20in%20the%20pasta-making%20process.%20The%20lighting%20is%20warm%20and%20natural%2C%20highlighting%20the%20texture%20of%20the%20dough&width=600&height=600&seq=24&orientation=squarish" alt="Preparación de Pasta" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20traditional%20Argentinian%20asado%20%28barbecue%29%20with%20various%20cuts%20of%20meat%20being%20grilled%20on%20an%20open%20flame.%20The%20grill%20master%20is%20tending%20to%20the%20meats%20with%20skill%20and%20care.%20The%20scene%20captures%20the%20essence%20of%20Argentinian%20grilling%20culture.%20The%20lighting%20is%20warm%20with%20the%20glow%20from%20the%20fire%20highlighting%20the%20juicy%20meats&width=600&height=600&seq=25&orientation=squarish" alt="Asado Argentino" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 7 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautifully%20set%20table%20in%20an%20Italian-Argentinian%20restaurant%20with%20elegant%20tableware%2C%20wine%20glasses%2C%20and%20a%20small%20vase%20with%20fresh%20flowers.%20The%20table%20is%20prepared%20for%20a%20romantic%20dinner%20with%20ambient%20lighting%20from%20candles.%20The%20scene%20captures%20the%20attention%20to%20detail%20in%20the%20restaurants%20presentation.%20The%20lighting%20is%20warm%20and%20intimate&width=600&height=600&seq=26&orientation=squarish" alt="Mesa Preparada" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+<!-- Gallery Item 8 -->
+<div class="gallery-item rounded-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20selection%20of%20Italian%20and%20Argentinian%20desserts%20beautifully%20arranged%20on%20a%20dessert%20table.%20The%20display%20includes%20tiramisu%2C%20panna%20cotta%2C%20alfajores%2C%20and%20dulce%20de%20leche%20crepes.%20Each%20dessert%20is%20perfectly%20presented%20with%20artistic%20garnishes.%20The%20lighting%20is%20warm%20and%20inviting%2C%20highlighting%20the%20various%20textures%20and%20colors%20of%20the%20sweet%20treats&width=600&height=600&seq=27&orientation=squarish" alt="Selección de Postres" class="w-full h-full object-cover">
+<div class="gallery-overlay">
+<i class="ri-zoom-in-line ri-2x text-white"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Contacto / Contact</h2>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-1/2">
+<div class="rounded-lg overflow-hidden h-[400px]" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+<div class="mt-8">
+<h3 class="text-xl font-semibold mb-4 text-primary">Información / Information</h3>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+<i class="ri-map-pin-line ri-lg"></i>
+</div>
+<div>
+<p class="mb-1">Av. Costa Cálida, 64</p>
+<p>30860 Puerto de Mazarrón, Murcia, España</p>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+<i class="ri-phone-line ri-lg"></i>
+</div>
+<div>
+<a href="tel:+34968154294" class="hover:text-primary transition-colors">+34 968 15 42 94</a>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+<i class="ri-whatsapp-line ri-lg"></i>
+</div>
+<div>
+<a href="https://wa.me/34968154294" class="hover:text-primary transition-colors">WhatsApp: +34 968 15 42 94</a>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+<i class="ri-time-line ri-lg"></i>
+</div>
+<div>
+<p class="mb-1">Martes - Domingo / Tuesday - Sunday</p>
+<p class="mb-1">13:00 - 16:00, 20:00 - 23:30</p>
+<p>Lunes cerrado / Monday closed</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h3 class="text-xl font-semibold mb-4 text-primary">Síguenos / Follow Us</h3>
+<div class="space-y-6">
+<a href="https://www.facebook.com/OuhmamibyMarcela/?locale=es_ES" target="_blank" class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all">
+<div class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
+<i class="ri-facebook-fill ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">Facebook</h4>
+<p class="text-sm text-gray-400">@OuhmamibyMarcela</p>
+</div>
+</a>
+<a href="https://www.instagram.com/ouhmami_bymarcela/" target="_blank" class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all">
+<div class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
+<i class="ri-instagram-fill ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">Instagram</h4>
+<p class="text-sm text-gray-400">@ouhmami_bymarcela</p>
+</div>
+</a>
+<div class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
+<i class="ri-whatsapp-fill ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">WhatsApp</h4>
+<p class="text-sm text-gray-400">+34 968 15 42 94</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black py-12 border-t border-gray-800">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-center mb-8">
+<a href="#" class="logo text-3xl text-primary mb-4 md:mb-0">Oh Mamy</a>
+<div class="flex space-x-4">
+<a href="https://www.facebook.com/OuhmamibyMarcela/?locale=es_ES" target="_blank" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-primary hover:text-black transition-all">
+<i class="ri-facebook-fill ri-lg"></i>
+</a>
+<a href="https://www.instagram.com/ouhmami_bymarcela/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-primary hover:text-black transition-all">
+<i class="ri-instagram-fill ri-lg"></i>
+</a>
+<a href="https://wa.me/34968154294" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-primary hover:text-black transition-all">
+<i class="ri-whatsapp-fill ri-lg"></i>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<div>
+<h3 class="text-lg font-semibold mb-4 text-primary">Contacto / Contact</h3>
+<p class="mb-2">Av. Costa Cálida, 64</p>
+<p class="mb-2">30860 Puerto de Mazarrón, Murcia</p>
+<p class="mb-2">
+<a href="tel:+34968154294" class="hover:text-primary transition-colors">+34 968 15 42 94</a>
+</p>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4 text-primary">Horario / Hours</h3>
+<p class="mb-2">Martes - Domingo / Tuesday - Sunday</p>
+<p class="mb-2">13:00 - 16:00, 20:00 - 23:30</p>
+<p class="mb-2">Lunes cerrado / Monday closed</p>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4 text-primary">Enlaces / Links</h3>
+<ul class="space-y-2">
+<li><a href="#home" class="hover:text-primary transition-colors">Inicio / Home</a></li>
+<li><a href="#about" class="hover:text-primary transition-colors">Sobre Nosotros / About Us</a></li>
+<li><a href="#menu" class="hover:text-primary transition-colors">Menú / Menu</a></li>
+<li><a href="#gallery" class="hover:text-primary transition-colors">Galería / Gallery</a></li>
+<li><a href="#contact" class="hover:text-primary transition-colors">Contacto / Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="text-center text-sm text-gray-400 pt-8 border-t border-gray-800">
+<p>© 2025 Oh Mamy by Marcela. Todos los derechos reservados. / All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Mobile Call Button -->
+<a href="tel:+34968154294" class="fixed bottom-6 right-6 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg md:hidden z-40">
+<i class="ri-phone-fill ri-xl text-black"></i>
+</a>
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
+<button id="close-lightbox" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white">
+<i class="ri-close-line ri-2x"></i>
+</button>
+<img id="lightbox-image" src="" alt="" class="max-w-full max-h-[90vh] object-contain">
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const closeMenuButton = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.add('open');
+});
+closeMenuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('open');
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.remove('open');
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Menu Tabs
+const tabButtons = document.querySelectorAll('.tab-button');
+const menuContents = document.querySelectorAll('.menu-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', function() {
+const category = this.dataset.category;
+// Hide all menu contents
+menuContents.forEach(content => {
+content.classList.add('hidden');
+});
+// Show selected menu content
+document.getElementById(category).classList.remove('hidden');
+// Update active tab
+tabButtons.forEach(btn => {
+btn.classList.remove('active');
+});
+this.classList.add('active');
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Gallery Lightbox
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const closeLightbox = document.getElementById('close-lightbox');
+galleryItems.forEach(item => {
+item.addEventListener('click', function() {
+const imgSrc = this.querySelector('img').src;
+lightboxImage.src = imgSrc;
+lightbox.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+});
+closeLightbox.addEventListener('click', function() {
+lightbox.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+lightbox.addEventListener('click', function(e) {
+if (e.target === lightbox) {
+lightbox.classList.add('hidden');
+document.body.style.overflow = 'auto';
+}
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Language Switch
+const languageToggle = document.getElementById('language-toggle');
+const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+// Function to switch language display
+function switchLanguage(isEnglish) {
+const esTexts = document.querySelectorAll('[data-lang="es"]');
+const enTexts = document.querySelectorAll('[data-lang="en"]');
+if (isEnglish) {
+esTexts.forEach(text => text.classList.add('hidden'));
+enTexts.forEach(text => text.classList.remove('hidden'));
+} else {
+esTexts.forEach(text => text.classList.remove('hidden'));
+enTexts.forEach(text => text.classList.add('hidden'));
+}
+localStorage.setItem('language', isEnglish ? 'en' : 'es');
+}
+// Check localStorage for language preference
+const savedLanguage = localStorage.getItem('language');
+if (savedLanguage === 'en') {
+languageToggle.checked = true;
+mobileLanguageToggle.checked = true;
+switchLanguage(true);
+}
+// Event listeners for language toggles
+languageToggle.addEventListener('change', function() {
+const isEnglish = this.checked;
+mobileLanguageToggle.checked = isEnglish;
+switchLanguage(isEnglish);
+});
+mobileLanguageToggle.addEventListener('change', function() {
+const isEnglish = this.checked;
+languageToggle.checked = isEnglish;
+switchLanguage(isEnglish);
+});
+});
+</script>
+</body>
+</html>
