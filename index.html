@@ -295,7 +295,7 @@ transform: translateY(-5px);
 <!-- Menu Categories Tabs -->
 <div class="overflow-x-auto mb-8">
 <div class="flex space-x-4 min-w-max px-4">
-<button class="tab-button active px-4 py-2 text-lg whitespace-nowrap" data-category="entrantes">Entrantes / Starters</button>
+<button class="tab-button active px-4 py-2 text-lg whitespace-nowrap" data-category="entrantes">Para compartir o no / To share (or not)</button>
 <button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pastas">Pastas / Pasta</button>
 <button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pizzas">Pizzas / Pizzas</button>
 <button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="carnes">Carnes / Meats</button>
@@ -305,21 +305,209 @@ transform: translateY(-5px);
 </div>
 <!-- Menu Items -->
 <div class="menu-content" id="entrantes">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Menu Item 1 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <!-- Gildas -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Gildas</h3>
+          <p class="text-gray-300 mb-1">Oliva, guindilla, anchoa.</p>
+          <p class="text-secondary text-sm mb-3">Olive, chili pepper, anchovy.</p>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">2,90 €</span>
+      </div>
+    </div>
+
+    <!-- Pan de ajo -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Pan de ajo</h3>
+          <p class="text-gray-300 mb-1">Pan casero tostado con ajo.</p>
+          <p class="text-secondary text-sm mb-3">Homemade toasted garlic bread.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten</span>
+          </div>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">3,90 €</span>
+      </div>
+    </div>
+
+    <!-- Pan de ajo con queso -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Pan de ajo con queso</h3>
+          <p class="text-gray-300 mb-1">Pan casero con ajo y queso fundido.</p>
+          <p class="text-secondary text-sm mb-3">Homemade garlic bread with melted cheese.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+          </div>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">4,90 €</span>
+      </div>
+    </div>
+
+    <!-- Empanada Criolla -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Empanada Criolla</h3>
+          <p class="text-gray-300 mb-1">Rellena de carne de ternera, cebolla, huevo, olivas al horno (Receta de la Mami Etdena).</p>
+          <p class="text-secondary text-sm mb-3">Stuffed with beef, onion, egg and olives (Mama Etdena's recipe).</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Huevo / Egg</span>
+          </div>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">3,70 €</span>
+      </div>
+    </div>
+
+    <!-- Chorizo Criollo -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Chorizo Criollo</h3>
+          <p class="text-gray-300 mb-1">Dos unidades de chorizo al estilo argentino con Chimichurri.</p>
+          <p class="text-secondary text-sm mb-3">Two Argentine-style sausages with chimichurri sauce.</p>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">5,60 €</span>
+      </div>
+    </div>
+
+    <!-- Brie -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Brie</h3>
+          <p class="text-gray-300 mb-1">Queso fundido al horno con salsa pesto y almendras gratinadas.</p>
+          <p class="text-secondary text-sm mb-3">Baked Brie with pesto and gratinated almonds.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Frutos secos / Nuts</span>
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+          </div>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">7,20 €</span>
+      </div>
+    </div>
+
+    <!-- Provolone -->
+    <div class="menu-card rounded-lg p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-semibold mb-2">Provolone</h3>
+          <p class="text-gray-300 mb-1">Queso italiano fundido al horno con base de tomate confitado.</p>
+          <p class="text-secondary text-sm mb-3">Baked Italian cheese with confit tomato base.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+          </div>
+        </div>
+        <span class="text-primary font-bold text-xl whitespace-nowrap">7,20 €</span>
+      </div>
+    </div>
+<!-- Provolone mar y tierra -->
 <div class="menu-card rounded-lg p-6">
-<div class="flex justify-between items-start gap-4">
-<div class="flex-1">
-<h3 class="text-xl font-semibold mb-2">Provoleta</h3>
-<p class="text-gray-300 mb-1">Queso provolone fundido con orégano y pimentón.</p>
-<p class="text-secondary text-sm mb-3">Melted provolone cheese with oregano and paprika.</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Provolone mar y tierra <span class="text-sm text-primary">(new!)</span></h3>
+      <p class="text-gray-300 mb-1">Queso italiano fundido al horno con base de tomate confitado, langostinos y jamón serrano.</p>
+      <p class="text-secondary text-sm mb-3">Italian cheese oven-melted with tomato confit, prawns and serrano ham.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Crustáceos / Crustaceans</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">12,90 €</span>
+  </div>
 </div>
+
+<!-- Fingers caseros -->
+<div class="menu-card rounded-lg p-6">
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Fingers caseros</h3>
+      <p class="text-gray-300 mb-1">Ración de nuestros fingers de pollo, acompañado de salsas.</p>
+      <p class="text-secondary text-sm mb-3">Homemade chicken fingers served with sauces.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Huevo / Egg</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Mostaza / Mustard</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">9,10 €</span>
+  </div>
 </div>
-<span class="text-primary font-bold text-xl whitespace-nowrap">9,50 €</span>
+
+<!-- Rollitos de berenjena -->
+<div class="menu-card rounded-lg p-6">
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Rollitos de berenjena <span class="text-sm text-primary">(new!)</span></h3>
+      <p class="text-gray-300 mb-1">Rellenos de queso de cabra y miel, con tomate cherry y pesto.</p>
+      <p class="text-secondary text-sm mb-3">Stuffed with goat cheese and honey, cherry tomatoes and pesto.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Frutos secos / Nuts</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">9,10 €</span>
+  </div>
 </div>
+
+<!-- Patatas a la barbacoa -->
+<div class="menu-card rounded-lg p-6">
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Patatas a la barbacoa <span class="text-sm text-primary">(new!)</span></h3>
+      <p class="text-gray-300 mb-1">Patatas fritas caseras con pollo, crema de queso y salsa barbacoa.</p>
+      <p class="text-secondary text-sm mb-3">Homemade fries with chicken, cheese cream and BBQ sauce.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Mostaza / Mustard</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Gluten</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">9,50 €</span>
+  </div>
 </div>
+<!-- Patatas Ouh! Mami -->
+<div class="menu-card rounded-lg p-6">
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Patatas <span class="italic font-bold">Ouh! Mami</span></h3>
+      <p class="text-gray-300 mb-1">Patatas fritas caseras con bacon, crema de queso y salsa ranchera.</p>
+      <p class="text-secondary text-sm mb-3">Homemade fries with bacon, cheese cream and ranch sauce.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lácteos / Dairy</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Mostaza / Mustard</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">9,50 €</span>
+  </div>
+</div>
+
+<!-- Mejillones diablo -->
+<div class="menu-card rounded-lg p-6">
+  <div class="flex justify-between items-start gap-4">
+    <div class="flex-1">
+      <h3 class="text-xl font-semibold mb-2">Mejillones diablo <span class="text-sm text-primary">(new!)</span></h3>
+      <p class="text-gray-300 mb-1">Con ajo, guindilla y salsa de tomate casera.</p>
+      <p class="text-secondary text-sm mb-3">With garlic, chili and homemade tomato sauce.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Moluscos / Molluscs</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Mostaza / Mustard</span>
+        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Pescado / Fish</span>
+      </div>
+    </div>
+    <span class="text-primary font-bold text-xl whitespace-nowrap">10,90 €</span>
+  </div>
+</div>
+  </div>
+</div>
+
 <!-- Menu Item 2 -->
 <div class="menu-card rounded-lg p-6">
 <div class="flex justify-between items-start gap-4">
