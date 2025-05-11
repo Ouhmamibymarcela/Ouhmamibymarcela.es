@@ -229,7 +229,7 @@ transform: translateY(-5px);
 </button>
 </div>
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-black bg-opacity-95 z-[9999] p-6 flex flex-col">
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white text-black z-[9999] p-6 flex flex-col">
 <div class="flex justify-between items-center mb-8">
 <span class="logo text-2xl text-primary">Oh Mamy</span>
 <button id="close-menu" class="w-10 h-10 flex items-center justify-center text-warm-white">
@@ -285,27 +285,6 @@ transform: translateY(-5px);
 </div>
 <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
 <i class="ri-arrow-down-line ri-2x text-white"></i>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section id="about" class="py-20 bg-black">
-<div class="container mx-auto px-4">
-<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Sobre Nosotros / About Us</h2>
-<div class="flex flex-col md:flex-row items-center gap-8">
-<div class="w-full md:w-1/2">
-<h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
-<p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Oh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
-<p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Oh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
-<h3 class="text-2xl mb-4 mt-8 text-primary">Filosofía / Philosophy</h3>
-<p class="mb-4">Creemos en ingredientes frescos, recetas tradicionales y un ambiente acogedor donde cada cliente se sienta como en casa. Cada plato cuenta una historia de tradición familiar y pasión por la buena comida.</p>
-<p class="mb-4 text-secondary">We believe in fresh ingredients, traditional recipes, and a welcoming atmosphere where every customer feels at home. Each dish tells a story of family tradition and passion for good food.</p>
-</div>
-<div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
-<video class="w-full h-full object-cover" autoplay muted loop>
-<source src="https://player.vimeo.com/external/370467553.sd.mp4?s=db5c0e1c94fa91b58bb3b3de7f09ef0f7a5b3eb2&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
-</video>
-</div>
 </div>
 </div>
 </section>
@@ -618,6 +597,27 @@ transform: translateY(-5px);
 </div>
 </div>
 </section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Sobre Nosotros / About Us</h2>
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="w-full md:w-1/2">
+<h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
+<p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Oh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
+<p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Oh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
+<h3 class="text-2xl mb-4 mt-8 text-primary">Filosofía / Philosophy</h3>
+<p class="mb-4">Creemos en ingredientes frescos, recetas tradicionales y un ambiente acogedor donde cada cliente se sienta como en casa. Cada plato cuenta una historia de tradición familiar y pasión por la buena comida.</p>
+<p class="mb-4 text-secondary">We believe in fresh ingredients, traditional recipes, and a welcoming atmosphere where every customer feels at home. Each dish tells a story of family tradition and passion for good food.</p>
+</div>
+<div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
+<video class="w-full h-full object-cover" autoplay muted loop>
+<source src="https://player.vimeo.com/external/370467553.sd.mp4?s=db5c0e1c94fa91b58bb3b3de7f09ef0f7a5b3eb2&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+</video>
+</div>
+</div>
+</div>
+</section>
 <!-- Gallery Section -->
 <section id="gallery" class="py-20 bg-black">
 <div class="container mx-auto px-4">
@@ -688,7 +688,10 @@ transform: translateY(-5px);
 <h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Contacto / Contact</h2>
 <div class="flex flex-col md:flex-row gap-8">
 <div class="w-full md:w-1/2">
-<div class="rounded-lg overflow-hidden h-[400px]" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+<div class="rounded-lg overflow-hidden h-[400px]">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.7044214986927!2d-1.2651429235943015!3d37.56202712438577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64a1654b1e7c25%3A0xb536edf3b09b05a0!2sOuh*21%20Mami%20by%20Marcela!5e0!3m2!1ses!2ses!4v1746982430440!5m2!1ses!2ses"
+    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 <div class="mt-8">
 <h3 class="text-xl font-semibold mb-4 text-primary">Información / Information</h3>
 <div class="flex items-start mb-4">
@@ -710,20 +713,16 @@ transform: translateY(-5px);
 </div>
 <div class="flex items-start mb-4">
 <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
-<i class="ri-whatsapp-line ri-lg"></i>
-</div>
-<div>
-<a href="https://wa.me/34968154294" class="hover:text-primary transition-colors">WhatsApp: +34 968 15 42 94</a>
-</div>
-</div>
-<div class="flex items-start mb-4">
-<div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
 <i class="ri-time-line ri-lg"></i>
 </div>
 <div>
-<p class="mb-1">Martes - Domingo / Tuesday - Sunday</p>
-<p class="mb-1">13:00 - 16:00, 20:00 - 23:30</p>
-<p>Lunes cerrado / Monday closed</p>
+<p class="mb-1">Lunes / Monday: 19:30–23:00</p>
+<p class="mb-1">Martes / Tuesday: Cerrado / Closed</p>
+<p class="mb-1">Miércoles / Wednesday: 19:30–23:00</p>
+<p class="mb-1">Jueves / Thursday: 19:30–23:00</p>
+<p class="mb-1">Viernes / Friday: 13:30–16:00, 19:30–23:30</p>
+<p class="mb-1">Sábado / Saturday: 13:30–16:00, 19:30–23:30</p>
+<p class="mb-1">Domingo / Sunday: 13:30–16:00, 19:30–23:30</p>
 </div>
 </div>
 </div>
@@ -749,14 +748,6 @@ transform: translateY(-5px);
 <p class="text-sm text-gray-400">@ouhmami_bymarcela</p>
 </div>
 </a>
-<div class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg">
-<div class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
-<i class="ri-whatsapp-fill ri-lg text-primary"></i>
-</div>
-<div>
-<h4 class="font-semibold">WhatsApp</h4>
-<p class="text-sm text-gray-400">+34 968 15 42 94</p>
-</div>
 </div>
 </div>
 </div>
@@ -767,7 +758,7 @@ transform: translateY(-5px);
 <footer class="bg-black py-12 border-t border-gray-800">
 <div class="container mx-auto px-4">
 <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-<a href="#" class="logo text-3xl text-primary mb-4 md:mb-0">Oh Mamy</a>
+<a href="#" class="logo text-3xl text-primary mb-4 md:mb-0">Ouh Mamy</a>
 <div class="flex space-x-4">
 <a href="https://www.facebook.com/OuhmamibyMarcela/?locale=es_ES" target="_blank" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-primary hover:text-black transition-all">
 <i class="ri-facebook-fill ri-lg"></i>
