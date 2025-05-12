@@ -293,16 +293,27 @@ transform: translateY(-5px);
 <div class="container mx-auto px-4">
 <h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Nuestra Carta / Our Menu</h2>
 <!-- Menu Categories Tabs -->
-<div class="overflow-x-auto mb-8">
-<div class="flex space-x-4 min-w-max px-4">
-<button class="tab-button active px-4 py-2 text-lg whitespace-nowrap" data-category="entrantes">Para compartir o no / To share (or not)</button>
-<button class="tab-button active px-4 py-2 text-lg whitespace-nowrap" data-category="ensaladas">Ensaladas / Salad </button>
-<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pastas">Pastas / Pasta</button>
-<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pizzas">Pizzas / Pizzas</button>
-<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="carnes">Carnes / Meats</button>
-<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="pescados">Pescados / Fish</button>
-<button class="tab-button px-4 py-2 text-lg whitespace-nowrap" data-category="postres">Postres / Desserts</button>
-</div>
+<div class="mb-8 px-4">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+    <button class="tab-button active border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="entrantes">
+      Para compartir o no / To share (or not)
+    </button>
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="pastas">
+      Pastas / Pasta
+    </button>
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="pizzas">
+      Pizzas / Pizzas
+    </button>
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="carnes">
+      Carnes / Meats
+    </button>
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="pescados">
+      Pescados / Fish
+    </button>
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="postres">
+      Postres / Desserts
+    </button>
+  </div>
 </div>
 <!-- Menu Items -->
 <div class="menu-content" id="entrantes">
