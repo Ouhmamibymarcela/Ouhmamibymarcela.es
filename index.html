@@ -12,32 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
-        .tropical-frame::before,
-.tropical-frame::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  background-repeat: repeat-y;
-  background-size: contain;
-  background-position: center;
-  z-index: 0;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.tropical-frame::before {
-  left: 0;
-  background-image: url('f20289d7-ee73-4352-8f47-a3c32d2b841c.png');
-}
-
-.tropical-frame::after {
-  right: 0;
-  background-image: url('f20289d7-ee73-4352-8f47-a3c32d2b841c.png');
-  transform: scaleX(-1); /* refleja para que quede simétrico */
-}
-
 :where([class^="ri-"])::before { content: "\f3c2"; }
 :root {
 --black: #000000;
@@ -213,10 +187,13 @@ transform: translateY(-5px);
 }
 </style>
 </head>
-<body class="tropical-frame">
+<body>
+<!-- Header -->
 <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
 <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-<a href="#" class="logo text-3xl text-primary">Ouh Mamy</a>
+<!-- Logo -->
+<a href="#" class="logo text-3xl text-primary">Ouh Mami</a>
+<!-- Desktop Navigation -->
 <nav class="hidden md:flex items-center space-x-6">
 <a href="#home" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Inicio</span>
@@ -239,41 +216,44 @@ transform: translateY(-5px);
 <span data-lang="en" class="hidden">Contact</span>
 </a>
 </nav>
+<!-- Language Switch -->
 <div class="hidden md:flex items-center">
 <label class="language-switch mx-4">
 <input type="checkbox" id="language-toggle">
 <span class="language-slider"></span>
 </label>
 </div>
+<!-- Mobile Menu Button -->
 <button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-warm-white">
 <i class="ri-menu-line ri-2x"></i>
 </button>
 </div>
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white text-black z-[9999] p-6 flex flex-col">
 <div class="flex justify-between items-center mb-8">
 <span class="logo text-2xl text-primary">Ouh Mamy</span>
-<button id="close-menu" class="w-10 h-10 flex items-center justify-center text-black">
-<i class="ri-close-line ri-2x text-black"></i>
+<button id="close-menu" class="w-10 h-10 flex items-center justify-center text-warm-white">
+<i class="ri-close-line ri-2x"></i>
 </button>
 </div>
 <nav class="flex flex-col space-y-6 text-lg">
-<a href="#home" class="text-black hover:text-primary transition-colors">
+<a href="#home" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Inicio</span>
 <span data-lang="en" class="hidden">Home</span>
 </a>
-<a href="#about" class="text-black hover:text-primary transition-colors">
+<a href="#about" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Sobre Nosotros</span>
 <span data-lang="en" class="hidden">About Us</span>
 </a>
-<a href="#menu" class="text-black hover:text-primary transition-colors">
+<a href="#menu" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Menú</span>
 <span data-lang="en" class="hidden">Menu</span>
 </a>
-<a href="#gallery" class="text-black hover:text-primary transition-colors">
+<a href="#gallery" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Galería</span>
 <span data-lang="en" class="hidden">Gallery</span>
 </a>
-<a href="#contact" class="text-black hover:text-primary transition-colors">
+<a href="#contact" class="text-warm-white hover:text-primary transition-colors">
 <span data-lang="es">Contacto</span>
 <span data-lang="en" class="hidden">Contact</span>
 </a>
@@ -286,8 +266,9 @@ transform: translateY(-5px);
 </div>
 </div>
 </header>
+<!-- Hero Section -->
 <section id="home" class="relative min-h-[80vh] md:h-screen flex items-center justify-center bg-black"
-        style="background-image: url('logo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+         style="background-image: url('logo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
 <div class="container mx-auto px-4 z-10 text-center">
 <h1 class="text-4xl md:text-6xl mb-4 font-bold text-white">
@@ -307,9 +288,11 @@ transform: translateY(-5px);
 </div>
 </div>
 </section>
+<!-- Menu Section -->
 <section id="menu" class="py-20 bg-black">
 <div class="container mx-auto px-4">
 <h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Nuestra Carta / Our Menu</h2>
+<!-- Menu Categories Tabs -->
 <div class="mb-8 px-4">
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
     <button class="tab-button active border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="entrantes">
@@ -322,20 +305,21 @@ transform: translateY(-5px);
       Pizzas / Pizzas
     </button>
     <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="ensaladas">
-      Ensaladas / Salads
+      Ensaldas / Salads
     </button>
-    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="hamburguesas">
+    <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="pescados">
       Hamburguesas / Hamburger
     </button>
     <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="postres">
       Postres / Desserts
     </button>
-            <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="argentinas">
-      Carnes al estilo argentino / Argentinian Style Meats
+           <button class="tab-button border border-primary text-primary font-medium rounded-full py-2 px-4 text-center transition-all" data-category="argentinas">
+  Carnes al estilo argentino / Argentinian Style Meats
 </button>
 
   </div>
 </div>
+<!-- Menu Items -->
 <div class="menu-content" id="entrantes">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     
