@@ -229,42 +229,43 @@ transform: translateY(-5px);
 </button>
 </div>
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white text-black z-[9999] p-6 flex flex-col">
-<div class="flex justify-between items-center mb-8">
-<span class="logo text-2xl text-primary">Ouh Mamy</span>
-<button id="close-menu" class="w-10 h-10 flex items-center justify-center text-warm-white">
-<i class="ri-close-line ri-2x"></i>
-</button>
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white z-[9999] p-6 flex flex-col text-left">
+  <div class="flex justify-between items-center mb-8">
+    <span class="logo text-2xl text-primary">Ouh Mamy</span>
+    <button id="close-menu" class="w-10 h-10 flex items-center justify-center text-black">
+      <i class="ri-close-line ri-2x"></i>
+    </button>
+  </div>
+  <nav class="flex flex-col space-y-6 text-lg">
+    <a href="#home" class="text-primary hover:underline transition-all">
+      <span data-lang="es">Inicio</span>
+      <span data-lang="en" class="hidden">Home</span>
+    </a>
+    <a href="#about" class="text-primary hover:underline transition-all">
+      <span data-lang="es">Sobre Nosotros</span>
+      <span data-lang="en" class="hidden">About Us</span>
+    </a>
+    <a href="#menu" class="text-primary hover:underline transition-all">
+      <span data-lang="es">Menú</span>
+      <span data-lang="en" class="hidden">Menu</span>
+    </a>
+    <a href="#gallery" class="text-primary hover:underline transition-all">
+      <span data-lang="es">Galería</span>
+      <span data-lang="en" class="hidden">Gallery</span>
+    </a>
+    <a href="#contact" class="text-primary hover:underline transition-all">
+      <span data-lang="es">Contacto</span>
+      <span data-lang="en" class="hidden">Contact</span>
+    </a>
+  </nav>
+  <div class="mt-auto">
+    <label class="language-switch mx-auto mt-8 flex">
+      <input type="checkbox" id="mobile-language-toggle">
+      <span class="language-slider"></span>
+    </label>
+  </div>
 </div>
-<nav class="flex flex-col space-y-6 text-lg">
-  <a href="#home" class="text-primary hover:underline transition-all">
-    <span data-lang="es">Inicio</span>
-    <span data-lang="en" class="hidden">Home</span>
-  </a>
-  <a href="#about" class="text-primary hover:underline transition-all">
-    <span data-lang="es">Sobre Nosotros</span>
-    <span data-lang="en" class="hidden">About Us</span>
-  </a>
-  <a href="#menu" class="text-primary hover:underline transition-all">
-    <span data-lang="es">Menú</span>
-    <span data-lang="en" class="hidden">Menu</span>
-  </a>
-  <a href="#gallery" class="text-primary hover:underline transition-all">
-    <span data-lang="es">Galería</span>
-    <span data-lang="en" class="hidden">Gallery</span>
-  </a>
-  <a href="#contact" class="text-primary hover:underline transition-all">
-    <span data-lang="es">Contacto</span>
-    <span data-lang="en" class="hidden">Contact</span>
-  </a>
-</nav>
-<div class="mt-auto">
-<label class="language-switch mx-auto mt-8 flex">
-<input type="checkbox" id="mobile-language-toggle">
-<span class="language-slider"></span>
-</label>
-</div>
-</div>
+
 </header>
 <!-- Hero Section -->
 <section id="home" class="relative min-h-[80vh] md:h-screen flex items-center justify-center bg-black"
@@ -585,34 +586,58 @@ transform: translateY(-5px);
     <span class="text-primary font-bold text-xl whitespace-nowrap">9,90 €</span>
   </div>
 </div>
-
-
+    </div>
+  </div>
 </section>
 <!-- About Section -->
 <section id="about" class="py-20 bg-black">
-<div class="container mx-auto px-4">
-<h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Sobre Nosotros / About Us</h2>
-<div class="flex flex-col md:flex-row items-center gap-8">
-<div class="w-full md:w-1/2">
-<h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
-<p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Ouh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
-<p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Ouh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
-<div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
-<div class="w-full md:w-1/2 h-[400px] relative overflow-hidden rounded-lg">
-  <div class="carousel absolute inset-0 w-full h-full">
-    <img src="carne2.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-    <img src="pizza1.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-    <img src="ensalada.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-        <img src="Carne.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-    <img src="empanadas.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-    <img src="Hamburguesa.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-     <img src="pasta.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl text-center mb-12 text-white">Sobre Nosotros / About Us</h2>
+    <div class="flex flex-col md:flex-row gap-10 items-start">
+      <!-- Texto a la izquierda -->
+      <div class="w-full md:w-1/2">
+        <h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
+        <p class="mb-4">
+          Con más de 10 años en Puerto de Mazarrón, Ouh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.
+        </p>
+        <p class="text-secondary">
+          With over 10 years in Puerto de Mazarrón, Ouh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.
+        </p>
+      </div>
+
+      <!-- Carrusel a la derecha -->
+      <div class="w-full md:w-1/2 relative h-[400px] overflow-hidden rounded-xl">
+        <div class="carousel relative w-full h-full">
+          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="empanadas.png" alt="Empanadas" class="w-full h-full object-cover rounded-xl" />
+          </div>
+          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="pasta.png" alt="Pasta" class="w-full h-full object-cover rounded-xl" />
+          </div>
+          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="plato.png" alt="Plato" class="w-full h-full object-cover rounded-xl" />
+                 <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="Hamburguesa.png" alt="Empanadas" class="w-full h-full object-cover rounded-xl" />
+          </div>
+          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="carne2.png" alt="Pasta" class="w-full h-full object-cover rounded-xl" />
+          </div>
+            <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="pizza1.png" alt="Pasta" class="w-full h-full object-cover rounded-xl" />
+          </div>
+          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="ensalada.png" alt="Plato" class="w-full h-full object-cover rounded-xl" />
+          </div>
+            <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+            <img src="Carne.png" alt="Plato" class="w-full h-full object-cover rounded-xl" />
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-</div>
 </section>
+
 <!-- Contact Section -->
 <section id="contact" class="py-20 bg-black">
 <div class="container mx-auto px-4">
