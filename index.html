@@ -229,7 +229,7 @@ transform: translateY(-5px);
 </button>
 </div>
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white z-[9999] p-6 flex flex-col text-left">
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-[#2E402F] text-white z-[9999] p-6 flex flex-col">
   <div class="flex justify-between items-center mb-8">
     <span class="logo text-2xl text-primary">Ouh Mamy</span>
     <button id="close-menu" class="w-10 h-10 flex items-center justify-center text-black">
@@ -237,27 +237,27 @@ transform: translateY(-5px);
     </button>
   </div>
   <nav class="flex flex-col space-y-6 text-lg">
-    <a href="#home" class="text-primary hover:underline transition-all">
-      <span data-lang="es">Inicio</span>
-      <span data-lang="en" class="hidden">Home</span>
-    </a>
-    <a href="#about" class="text-primary hover:underline transition-all">
-      <span data-lang="es">Sobre Nosotros</span>
-      <span data-lang="en" class="hidden">About Us</span>
-    </a>
-    <a href="#menu" class="text-primary hover:underline transition-all">
-      <span data-lang="es">Menú</span>
-      <span data-lang="en" class="hidden">Menu</span>
-    </a>
-    <a href="#gallery" class="text-primary hover:underline transition-all">
-      <span data-lang="es">Galería</span>
-      <span data-lang="en" class="hidden">Gallery</span>
-    </a>
-    <a href="#contact" class="text-primary hover:underline transition-all">
-      <span data-lang="es">Contacto</span>
-      <span data-lang="en" class="hidden">Contact</span>
-    </a>
-  </nav>
+  <a href="#home" class="text-white hover:text-primary transition-all">
+    <span data-lang="es">Inicio</span>
+    <span data-lang="en" class="hidden">Home</span>
+  </a>
+  <a href="#about" class="text-white hover:text-primary transition-all">
+    <span data-lang="es">Sobre Nosotros</span>
+    <span data-lang="en" class="hidden">About Us</span>
+  </a>
+  <a href="#menu" class="text-white hover:text-primary transition-all">
+    <span data-lang="es">Menú</span>
+    <span data-lang="en" class="hidden">Menu</span>
+  </a>
+  <a href="#gallery" class="text-white hover:text-primary transition-all">
+    <span data-lang="es">Galería</span>
+    <span data-lang="en" class="hidden">Gallery</span>
+  </a>
+  <a href="#contact" class="text-white hover:text-primary transition-all">
+    <span data-lang="es">Contacto</span>
+    <span data-lang="en" class="hidden">Contact</span>
+  </a>
+</nav>
   <div class="mt-auto">
     <label class="language-switch mx-auto mt-8 flex">
       <input type="checkbox" id="mobile-language-toggle">
@@ -608,7 +608,7 @@ transform: translateY(-5px);
       <!-- Carrusel a la derecha -->
       <div class="w-full md:w-1/2 relative h-[400px] overflow-hidden rounded-xl">
         <div class="carousel relative w-full h-full">
-          <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
+          <div class="absolute inset-0 animate-fade opacity-100 carousel-img transition-opacity duration-1000">
             <img src="empanadas.png" alt="Empanadas" class="w-full h-full object-cover rounded-xl" />
           </div>
           <div class="absolute inset-0 animate-fade opacity-0 carousel-img transition-opacity duration-1000">
@@ -882,27 +882,20 @@ switchLanguage(isEnglish);
     this.classList.add('active');
   });
 });
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.carousel-img');
+    let current = 0;
+
+    setInterval(() => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('opacity-100', i === current);
+        slide.classList.toggle('opacity-0', i !== current);
+      });
+      current = (current + 1) % slides.length;
+    }, 4000);
+  });
 </script>
-         <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const images = document.querySelectorAll('.carousel img');
-  let index = 0;
 
-  function showNextImage() {
-    images.forEach((img, i) => {
-      img.classList.add('opacity-0');
-      img.classList.remove('opacity-100');
-    });
-    images[index].classList.remove('opacity-0');
-    images[index].classList.add('opacity-100');
-
-    index = (index + 1) % images.length;
-  }
-
-  images[0].classList.add('opacity-100');
-  setInterval(showNextImage, 3000); // cada 3 segundos
-});
-</script>
 
 
 
