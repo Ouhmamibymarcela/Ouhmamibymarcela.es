@@ -12,6 +12,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
+         .tropical-frame::before,
+.tropical-frame::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.tropical-frame::before {
+  left: 0;
+  background-image: url('f20289d7-ee73-4352-8f47-a3c32d2b841c.png');
+}
+
+.tropical-frame::after {
+  right: 0;
+  background-image: url('f20289d7-ee73-4352-8f47-a3c32d2b841c.png');
+  transform: scaleX(-1); /* refleja para que quede simétrico */
+}
+
 :where([class^="ri-"])::before { content: "\f3c2"; }
 :root {
 --black: #000000;
@@ -187,7 +213,7 @@ transform: translateY(-5px);
 }
 </style>
 </head>
-<body>
+<body class="tropical-frame">
 <!-- Header -->
 <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
 <div class="container mx-auto px-4 py-3 flex items-center justify-between">
