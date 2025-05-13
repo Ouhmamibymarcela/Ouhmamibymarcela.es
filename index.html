@@ -223,28 +223,49 @@ transform: translateY(-5px);
 <span class="language-slider"></span>
 </label>
 </div>
-  <!-- Mobile Menu Button -->
-<div class="md:hidden w-10 h-10 flex items-center justify-center">
-  <button id="mobile-menu-button" class="text-warm-white">
-    <i class="ri-menu-line ri-2x"></i>
-  </button>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-warm-white">
+<i class="ri-menu-line ri-2x"></i>
+</button>
 </div>
-</div> <!-- <- Cierre del container del header -->
-
-<!-- Mobile Navigation -->
-<div id="mobile-menu" class="fixed inset-0 bg-black text-white z-50 p-6 hidden">
-  <div class="flex justify-between items-center mb-8">
-    <span class="logo text-2xl text-primary">Ouh Mamy</span>
-    <button id="close-menu" class="text-warm-white">
-      <i class="ri-close-line ri-2x"></i>
-    </button>
-  </div>
-  <nav class="flex flex-col space-y-6 text-lg">
-    <a href="#home" class="hover:text-primary">Inicio / Home</a>
-    <a href="#menu" class="hover:text-primary">Menú / Menu</a>
-    <a href="#contact" class="hover:text-primary">Contacto / Contact</a>
-  </nav>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-full bg-white text-black z-[9999] p-6 flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<span class="logo text-2xl text-primary">Ouh Mamy</span>
+<button id="close-menu" class="w-10 h-10 flex items-center justify-center text-warm-white">
+<i class="ri-close-line ri-2x"></i>
+</button>
 </div>
+<nav class="flex flex-col space-y-6 text-lg">
+<a href="#home" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Inicio</span>
+<span data-lang="en" class="hidden">Home</span>
+</a>
+<a href="#about" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Sobre Nosotros</span>
+<span data-lang="en" class="hidden">About Us</span>
+</a>
+<a href="#menu" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Menú</span>
+<span data-lang="en" class="hidden">Menu</span>
+</a>
+<a href="#gallery" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Galería</span>
+<span data-lang="en" class="hidden">Gallery</span>
+</a>
+<a href="#contact" class="text-warm-white hover:text-primary transition-colors">
+<span data-lang="es">Contacto</span>
+<span data-lang="en" class="hidden">Contact</span>
+</a>
+</nav>
+<div class="mt-auto">
+<label class="language-switch mx-auto mt-8 flex">
+<input type="checkbox" id="mobile-language-toggle">
+<span class="language-slider"></span>
+</label>
+</div>
+</div>
+</header>
 <!-- Hero Section -->
 <section id="home" class="relative min-h-[80vh] md:h-screen flex items-center justify-center bg-black"
          style="background-image: url('logo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -504,7 +525,7 @@ transform: translateY(-5px);
 </div>
 
 <!-- ENSALADAS / SALADS -->
-<div class="menu-content hidden" id="ensaladas">
+<div class="menu-content" id="ensaladas">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="menu-card rounded-lg p-6">
   <div class="flex justify-between items-start gap-4">
@@ -576,6 +597,9 @@ transform: translateY(-5px);
 <h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
 <p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Ouh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
 <p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Ouh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
+<h3 class="text-2xl mb-4 mt-8 text-primary">Filosofía / Philosophy</h3>
+<p class="mb-4">Creemos en ingredientes frescos, recetas tradicionales y un ambiente acogedor donde cada cliente se sienta como en casa. Cada plato cuenta una historia de tradición familiar y pasión por la buena comida.</p>
+<p class="mb-4 text-secondary">We believe in fresh ingredients, traditional recipes, and a welcoming atmosphere where every customer feels at home. Each dish tells a story of family tradition and passion for good food.</p>
 </div>
 <div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
 <video class="w-full h-full object-cover" autoplay muted loop>
@@ -888,28 +912,5 @@ switchLanguage(isEnglish);
 });
 });
 </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const openBtn = document.getElementById('mobile-menu-button');
-    const closeBtn = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const links = mobileMenu.querySelectorAll('a');
-
-    openBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-    });
-
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-    });
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  });
-</script>
-
 </body>
 </html>
