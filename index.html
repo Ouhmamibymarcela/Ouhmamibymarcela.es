@@ -525,7 +525,7 @@ transform: translateY(-5px);
 </div>
 
 <!-- ENSALADAS / SALADS -->
-<div class="menu-content" id="ensaladas">
+<div class="menu-content hidden" id="ensaladas">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="menu-card rounded-lg p-6">
   <div class="flex justify-between items-start gap-4">
@@ -597,16 +597,16 @@ transform: translateY(-5px);
 <h3 class="text-2xl mb-4 text-primary">Nuestra Historia / Our Story</h3>
 <p class="mb-4">Con más de 10 años en Puerto de Mazarrón, Ouh Mamy by Marcela se ha convertido en un referente de la cocina italo-argentina tradicional. Nuestros platos combinan la pasión italiana por la pasta y la pizza con el arte argentino de la parrilla.</p>
 <p class="mb-4 text-secondary">With over 10 years in Puerto de Mazarrón, Ouh Mamy by Marcela has become a benchmark for traditional Italian-Argentine cuisine. Our dishes combine the Italian passion for pasta and pizza with the Argentine art of grilling.</p>
-<h3 class="text-2xl mb-4 mt-8 text-primary">Filosofía / Philosophy</h3>
-<p class="mb-4">Creemos en ingredientes frescos, recetas tradicionales y un ambiente acogedor donde cada cliente se sienta como en casa. Cada plato cuenta una historia de tradición familiar y pasión por la buena comida.</p>
-<p class="mb-4 text-secondary">We believe in fresh ingredients, traditional recipes, and a welcoming atmosphere where every customer feels at home. Each dish tells a story of family tradition and passion for good food.</p>
-</div>
 <div class="w-full md:w-1/2 h-[400px] rounded-lg overflow-hidden">
 <div class="w-full md:w-1/2 h-[400px] relative overflow-hidden rounded-lg">
   <div class="carousel absolute inset-0 w-full h-full">
     <img src="carne2.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
     <img src="pizza1.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
     <img src="ensalada.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+        <img src="Carne.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+    <img src="empanadas.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+    <img src="Hamburguesa.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+     <img src="pasta.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
   </div>
 </div>
 </div>
@@ -840,6 +840,23 @@ languageToggle.checked = isEnglish;
 switchLanguage(isEnglish);
 });
 });
+    tabButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const category = this.dataset.category;
+
+    // Oculta todos los bloques
+    menuContents.forEach(content => {
+      content.classList.add('hidden');
+    });
+
+    // Muestra el seleccionado
+    document.getElementById(category).classList.remove('hidden');
+
+    // Actualiza los botones
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
 </script>
          <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -861,6 +878,8 @@ document.addEventListener('DOMContentLoaded', function () {
   setInterval(showNextImage, 3000); // cada 3 segundos
 });
 </script>
+
+
 
 </body>
 </html>
